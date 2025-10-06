@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  ${T_BENCH_TASK_DOCKER_CLIENT_IMAGE_NAME:-client}:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${T_BENCH_TASK_DOCKER_NAME_PREFIX:-tb}__log-parse-fixer
+    working_dir: /app
+    command: ["bash","-lc","tail -f /dev/null"]
